@@ -16,6 +16,7 @@ function addBookToLibrary(title, author, pages) {
 }
  
 // A place to list the new book objects
+// Has to be here. Don't know why
 const booksToAdd = [
     { title: "1984", author: "George Orwell", pages: 328 },
     { title: "The Hobbit", author: "J.R.R. Tolkien", pages: 310 },
@@ -23,6 +24,7 @@ const booksToAdd = [
   ];
   
   // A Loop that looks through and adds each object to addBookToLibrary()
+  // Has to be here. Don't know why
   for (let book of booksToAdd) {
     addBookToLibrary(book.title, book.author, book.pages);
   }
