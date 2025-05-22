@@ -1,7 +1,7 @@
 const myLibrary = [];
 
 
- // the constructor...
+ // the "Book" constructor
 function Book(title, author, pages) {
   this.title = title;
   this.author = author;
@@ -15,16 +15,16 @@ function addBookToLibrary(title, author, pages) {
   console.log(newBook)
 }
  
+// A place to list the new book objects
 const booksToAdd = [
     { title: "1984", author: "George Orwell", pages: 328 },
     { title: "The Hobbit", author: "J.R.R. Tolkien", pages: 310 },
     { title: "To Kill a Mockingbird", author: "Harper Lee", pages: 281 }
   ];
   
-  // Loop through and add each book
+  // A Loop that looks through and adds each object to addBookToLibrary()
   for (let book of booksToAdd) {
     addBookToLibrary(book.title, book.author, book.pages);
   }
   
-// addBookToLibrary();
 console.table(myLibrary);
