@@ -12,7 +12,6 @@ function Book(title, author, pages) {
 function addBookToLibrary(title, author, pages) {
  const newBook = new Book(title, author, pages);
   myLibrary.push(newBook);
-  console.log(newBook)
 }
  
 // A place to list the new book objects
