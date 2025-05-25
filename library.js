@@ -1,6 +1,11 @@
 const Library = document.querySelector('#library')
+const Form = document.querySelector('#form');
+const NewBook = document.querySelector('#new-book')
 
 
+NewBook.addEventListener('click', ()=> {
+  Form.style.display = 'flex';
+})
 const myLibrary = [];
 
 
