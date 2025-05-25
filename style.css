@@ -2,6 +2,7 @@
      filter: blur(2px);
 }
 .container {
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,7 +14,9 @@
 .new-book-button {
     height: 3rem;
     width: 4rem;
-
+    border-radius: .2rem;
+} .new-book-button:hover {
+    background-color: darkgray;
 }
 
 .library {
@@ -34,6 +37,8 @@
     text-align: center;
     padding: 5px;
     padding-top: 6px;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .form-container {
