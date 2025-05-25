@@ -3,11 +3,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(219, 219, 219);
 }
 
-.new-book {
+.new-book-button {
     height: 3rem;
     width: 4rem;
+
 }
 
 .library {
@@ -17,11 +21,12 @@
 }
 
 .book {
-    color: green;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     font-size: large;
     border: 1px solid black;
     border-radius: .3rem;
-    box-shadow: 4px 4px 4px 0px blue;
+    box-shadow: 4px 4px 4px 0px rgb(87, 87, 87);
     width: 30%;
     margin: .3rem;
     text-align: center;
@@ -41,8 +46,12 @@ form {
     background-color: rgb(208, 208, 208);
     padding: 1rem;
     width: 50%;
-    box-shadow: 4px 4px 4px 0px rgb(161, 161, 161);
+    box-shadow: 4px 4px 4px 0px rgb(95, 95, 95);
     display: none;
+    position: absolute;
+    top: 18%;
+    left: 25%;
+    
 }
  
 .required {
