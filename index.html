@@ -11,20 +11,34 @@
 <body>
     <div class="container">
         <div class="library" id="library">
-            
+
         </div>
-       <div class="form-div" id="form-div">
+         <button style="z-index: 1000; height: 50px; width: 50px;">New Book</button>
+    </div>
+
+    <div class="form-div" id="form-div">
         <form action="" class="form" id="form">
-            <label>Title:<input type="text">
-            </label>
+            <fieldset>
+                <ul>
+                    <li>
+                        <label for="title"> Title <span>* </span>
+                        <input type="text" id="title" name="title">
+                    </label>
+                </li>
+                    <li>
+                        <label for="author"> Author <span>* </span>
+                        <input type="text" id="author" name="author">
+                    </label>
+                </li>
+                    <li>
+                        <label for="page-number"> Page Number: <span>* </span>
+                        <input type="text" id="page-number" name="page-number">
+                    </label>
+                </li>
+                </ul>
+            </fieldset>
 
-            <label>Author:<input type="text">
-            </label>
-
-            <label>Page Number:<input type="text">
-            </label>
         </form>
        </div>
-    </div>
 </body>
 </html>
