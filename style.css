@@ -1,0 +1,12 @@
+.book {
+    color: green;
+    font-size: large;
+    border: 1px solid black;
+    border-radius: .3rem;
+    box-shadow: 4px 4px 4px 0px blue;
+    width: 30%;
+    margin: .3rem;
+    text-align: center;
+    padding: 5px;
+    padding-top: 6px;
+}

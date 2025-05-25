@@ -1,8 +1,12 @@
+const Library = document.querySelector('#library')
+
+
 const myLibrary = [];
 
 
  // the "Book" constructor
 function Book(title, author, pages) {
+  this.id = crypto.randomUUID();
   this.title = title;
   this.author = author;
   this.pages = pages;
@@ -27,5 +31,21 @@ const booksToAdd = [
   for (let book of booksToAdd) {
     addBookToLibrary(book.title, book.author, book.pages);
   }
-  
+  // !!! Figure out how to first display array to the page !!! 
+  Library.innerHTML = '';
+  myLibrary.forEach(book => {
+    // Create a div for each book
+    const bookDiv = document.createElement("div");
+    bookDiv.classList.add("book");
+
+    // Fill the div with book info
+    bookDiv.innerHTML = `
+      <p><strong>Title:</strong> ${book.title}</p>
+      <p><strong>Author:</strong> ${book.author}</p>
+      <p><strong>Pages:</strong> ${book.pages}</p>
+    `+ '<br/>';
+
+    // Add it to the page
+    Library.appendChild(bookDiv);
+  });
 console.table(myLibrary);
