@@ -1,4 +1,6 @@
-
+.blur {
+     filter: blur(2px);
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -37,7 +39,13 @@
 .form-container {
     display: flex;
     justify-content: center;
-    
+    height: 60%;
+    width: 80%;
+    position: absolute;
+    top: 15%;
+    left: 9%;
+    /* height: 20rem; */
+    /* width: 30rem; */
 }
 
 form {
@@ -48,9 +56,7 @@ form {
     width: 50%;
     box-shadow: 4px 4px 4px 0px rgb(95, 95, 95);
     display: none;
-    position: absolute;
-    top: 18%;
-    left: 25%;
+    border-radius: .2rem;
     
 }
  
@@ -64,12 +70,20 @@ label {
     flex-direction: column;
     text-align: center;
 }
+
+li {
+        display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
  p { font-size: inherit}
 input {
     height: 1.3rem;
+    width: 99%;
     margin: 0.1rem 0rem 0.8rem;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
 } input:user-invalid {
     box-shadow:  1px 4px 12px 0px rgb(255, 0, 0);
 } input:user-valid {
