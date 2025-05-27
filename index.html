@@ -22,19 +22,24 @@
                 <ul>
                     <li>
                         <label for="title"> Title:
-                        <input type="text" id="title" name="title">
+                        <input type="text" id="title" name="title" class="form-input">
                     </label>
                 </li>
                     <li>
                         <label for="author"> Author:
-                        <input type="text" id="author" name="author">
+                        <input type="text" id="author" name="author" class="form-input">
                     </label>
                 </li>
                     <li>
                         <label for="page-number"> Page Number:
-                        <input type="text" id="page-number" name="page-number">
+                        <input type="text" id="page-number" name="page-number" class="form-input">
                     </label>
                 </li>
+                
+                <div class="read-status">
+                    <p>Already Read:</p>
+                    <input type="checkbox" name="read" id="read">
+                </div>
                 </ul>
             </fieldset>
             <button type="submit" class="submit" id="submit">Add Book</button>
