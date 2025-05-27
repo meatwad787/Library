@@ -1,0 +1,3 @@
+For js: when add functions to add books, write an if statement to break the loop or whatever
+if any form input is empty. 
+^^^ That might actually get handled when I add functions to remove books.
