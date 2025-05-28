@@ -72,7 +72,7 @@ const booksToAdd = [
       <p>Title: ${book.title}</p>
       <p>Author: ${book.author}</p>
       <p>Pages: ${book.pages}</p>
-    `+ '<br/>';
+    `
 
     // Add it to the page
     Library.appendChild(bookDiv);
