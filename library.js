@@ -1,15 +1,27 @@
 const Library = document.querySelector('#library');
 const Form = document.querySelector('#form');
-const NewBook = document.querySelector('#new-book');
-const Container = document.querySelector('.container');
+const NewBookBtn = document.querySelector('#new-book');
+const Container = document.querySelector('#container');
+const SubmitBtn = document.querySelector('#submit');
+
+
 
 // This makes the form "appear" as a popup 
 // and blurs the background when the form is on-screen
 //Later: remove the blur when the submit button is clicked
-NewBook.addEventListener('click', ()=> {
+NewBookBtn.addEventListener('click', ()=> {
   Form.style.display = 'flex';
   Container.classList.add('blur')
 })
+
+SubmitBtn.addEventListener('click', (event)=> {
+  event.preventDefault();
+  Container.classList.remove('blur')
+  Form.style.display = 'none';
+
+  
+})
+
 const myLibrary = [];
 
 
