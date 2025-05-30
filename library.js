@@ -2,6 +2,7 @@ const Library = document.querySelector('#library');
 const FormConainer = document.querySelector('#form-container')
 const Form = document.querySelector('#form');
 const NewBookBtn = document.querySelector('#new-book');
+const ClearAllBtn = document.querySelector('#clear-all-button')
 const Container = document.querySelector('#container');
 const SubmitBtn = document.querySelector('#submit');
 
@@ -16,6 +17,10 @@ NewBookBtn.addEventListener('click', ()=> {
   Container.classList.add('blur') // blurs the background when the form is on-screen
 })
 
+ClearAllBtn.addEventListener('click', ()=> {
+  localStorage.removeItem('MyBooks')
+  window.location.reload();
+})
 
 SubmitBtn.addEventListener('click', (event)=> {
   event.preventDefault(); // Prevents the form from trying to send data   
@@ -50,6 +55,7 @@ SubmitBtn.addEventListener('click', (event)=> {
       Form.reset(); // Reset the form
       console.table(myLibrary);
 
+      // Locally Stores the objects in myLibrary as JSON string 
       localStorage.setItem('MyBooks', JSON.stringify(myLibrary))
 })
 
@@ -57,7 +63,8 @@ SubmitBtn.addEventListener('click', (event)=> {
 
 
 
-  
+  // Lets the browser re-creates previous html and objects after refresh
+  // Basically save the page/ Library so you can keep adding to it
 document.addEventListener('DOMContentLoaded', () => {
   const storedLibrary = localStorage.getItem('MyBooks');
   if (storedLibrary) {
