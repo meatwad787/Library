@@ -15,6 +15,11 @@ NewBookBtn.addEventListener('click', ()=> {
   Form.style.display = 'flex';
   FormConainer.classList.add('z-index') // switches the z-index of the form-container from -1 to 1;
   Container.classList.add('blur') // blurs the background when the form is on-screen
+  ClearAllBtn.disabled = true;
+  ClearAllBtn.classList.add('no-hover');
+  NewBookBtn.disabled = true;
+  NewBookBtn.classList.add('no-hover');
+
 })
 
 ClearAllBtn.addEventListener('click', ()=> {
@@ -27,6 +32,11 @@ SubmitBtn.addEventListener('click', (event)=> {
   Container.classList.remove('blur')  // removes the blur from the page and 
   Form.style.display = 'none';
   FormConainer.classList.remove('z-index'); // resets the form-container's z-index to -1  
+
+  ClearAllBtn.disabled = false;
+  ClearAllBtn.classList.remove('no-hover');
+  NewBookBtn.disabled = false;
+  NewBookBtn.classList.remove('no-hover')
 
   // Creates the Book object 
   // Uses the form input values as key: values.
