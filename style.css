@@ -113,7 +113,10 @@ li {
     gap: 10px;
     padding: 20px;
 }
- p { font-size: inherit}
+ p { 
+    font-size: inherit;
+    margin-bottom: .5rem;
+}
 input {
     height: 1.3rem;
     width: 100%;
