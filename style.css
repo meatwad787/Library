@@ -12,11 +12,26 @@
     background-color: rgb(219, 219, 219);
 }
 
+.buttons {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-start: 1fr 1fr; 
+}
+
 .new-book-button {
+    grid-column-start: 2;
+    grid-row-start: 2;
+} 
+.clear-all-button {
+    grid-column-start: 3;
+}
+.new-book-button, .clear-all-button {
     height: 3rem;
     width: 4rem;
     border-radius: .2rem;
-} .new-book-button:hover {
+} .new-book-button:hover, .clear-all-button:hover {
     background-color: darkgray;
 }
 
