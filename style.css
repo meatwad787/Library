@@ -59,7 +59,7 @@
     padding-top: 20px;
     /* word-wrap: break-word; */
     /* white-space: pre-line; */
-    overflow: auto;
+    overflow: auto; 
     hyphens: auto;
 }
 
