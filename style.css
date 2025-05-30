@@ -30,8 +30,9 @@
     grid-column-start: 3;
 }
 .new-book-button, .clear-all-button {
-    height: 3rem;
-    width: 4rem;
+    height: 4rem;
+    width: 5rem;
+     font-size: larger;
     border-radius: .2rem;
 } .new-book-button:hover, .clear-all-button:hover {
     background-color: darkgray;
@@ -50,13 +51,15 @@
     /* border: 1px solid black; */
     border-radius: .3rem;
     box-shadow: 4px 4px 4px 0px rgb(87, 87, 87);
-    height: 7rem;
+    /* height: 7rem; */
     width: 12rem;
     margin: .6rem;
     text-align: center;
     padding: 5px;
     padding-top: 20px;
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
+    /* white-space: pre-line; */
+    overflow: auto;
     hyphens: auto;
 }
 
@@ -116,7 +119,7 @@ li {
     padding: 20px;
 }
  p { 
-    font-size: inherit;
+    font-size: larger;
     margin-bottom: .5rem;
 }
 input {
@@ -140,14 +143,9 @@ input:focus.form-input {
 
 
 .submit {
-    /* margin-top: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 10px;
-    background-color: #dcffdc;
-    width: 11rem; */
-
-     height: 3rem;
-    width: 4rem;
+     height: 4rem;
+    width: 5rem;
+    font-size: larger;
     border-radius: .2rem;
 } .submit:hover {
     /* background-color: #5dcf5d; */
