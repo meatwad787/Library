@@ -40,8 +40,9 @@
    box-shadow: 5px 5px 4px 0px rgb(9, 171, 212)
 } button:hover {
     background-color: rgb(9, 171, 212);
-} button.no-hover:hover {
+} button.no-hover {
     background-color: initial;
+    color: #8c0202;
 }
 
 .library {
@@ -85,12 +86,12 @@
 }
 
 form {
-       color: rgb(255 227 97);
+       color: rgb(255, 208, 0);
     font-size: larger;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(172 0 0 / 80%);
+   background-color: rgb(172 0 0 / 52%);
     padding: 1rem;
     height: 32.5rem;
     width: 60%;
@@ -98,7 +99,6 @@ form {
     display: none;
     border-radius: .2rem;
     gap: .5rem;
-    
 }
 
 .read-status {
