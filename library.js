@@ -59,7 +59,7 @@ SubmitBtn.addEventListener('click', (event)=> {
       
 
       bookDiv.innerHTML = `
-        <p><i>"${book.title}"<i/></p>
+        <p>"${book.title}"</p>
         <p> by ${book.author}</p>
         <p>${book.pages} Pages</p>
       `;
@@ -94,9 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
       removeBtn.textContent = 'Delete'
 
       bookDiv.innerHTML = `
-        <p>Title: ${book.title}</p>
-        <p>Author: ${book.author}</p>
-        <p>Pages: ${book.pages}</p>
+        <p>"${book.title}"</p>
+        <p> by ${book.author}</p>
+        <p>${book.pages} Pages</p>
       `;
 
       Library.appendChild(bookDiv);
