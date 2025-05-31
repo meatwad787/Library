@@ -71,6 +71,21 @@ body {
     /* white-space: pre-line; */
     overflow: auto;
     hyphens: auto;
+} 
+.remove-button {
+       color: rgb(255 210 0);
+    background-color: #8c0202;
+    font-size: large;
+    /* border: 1px solid black; */
+    border: transparent;
+    border-radius: .3rem;
+    box-shadow: 7px 4px 4px 0px rgb(9, 171, 212);
+    height: 2rem;
+    width: 5rem;
+    margin: .6rem;
+    text-align: center;
+    padding: 5px;
+    /* padding-top: 20px; */
 }
 
 .form-container {

@@ -53,14 +53,19 @@ SubmitBtn.addEventListener('click', (event)=> {
       myLibrary.forEach(function(book) {
       let bookDiv = document.createElement('div');
       bookDiv.classList.add("book");
+      let removeBtn = document.createElement('button');
+      removeBtn.classList.add('remove-button');
+      removeBtn.textContent = 'Delete'
+      
 
       bookDiv.innerHTML = `
-        <p>Title: ${book.title}</p>
-        <p>Author: ${book.author}</p>
-        <p>Pages: ${book.pages}</p>
+        <p><i>"${book.title}"<i/></p>
+        <p> by ${book.author}</p>
+        <p>${book.pages} Pages</p>
       `;
 
       Library.appendChild(bookDiv);
+      bookDiv.appendChild(removeBtn);
       })
       Form.reset(); // Reset the form
       console.table(myLibrary);
@@ -84,6 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
     loadedBooks.forEach(function(book) {
       let bookDiv = document.createElement('div');
       bookDiv.classList.add("book");
+        let removeBtn = document.createElement('button');
+      removeBtn.classList.add('remove-button');
+      removeBtn.textContent = 'Delete'
 
       bookDiv.innerHTML = `
         <p>Title: ${book.title}</p>
@@ -92,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
 
       Library.appendChild(bookDiv);
+      bookDiv.appendChild(removeBtn);
     });
   }
 
