@@ -60,7 +60,6 @@ SubmitBtn.addEventListener('click', (event)=> {
       removeBtn.textContent = 'Delete';
       console.log(bookDiv.dataset.id);
       
-
       bookDiv.innerHTML = `
         <p>"${book.title}"</p>
         <p> by ${book.author}</p>
@@ -77,8 +76,22 @@ SubmitBtn.addEventListener('click', (event)=> {
         });
 
 
+        let readOrNot = document.createElement('button');
+      readOrNot.classList.add('remove-button');
+      readOrNot.textContent = 'Read';
+
+      readOrNot.addEventListener('click', ()=> {
+        if (readOrNot.textContent === 'Read') {
+          readOrNot.textContent = 'Not Read'
+        }
+        else if (readOrNot.textContent === 'Not Read') {
+          readOrNot.textContent = 'Read'
+        };
+      });
+
       Library.appendChild(bookDiv);
       bookDiv.appendChild(removeBtn);
+      bookDiv.appendChild(readOrNot);
       })
       Form.reset(); // Reset the form
       // console.table(myLibrary);
@@ -105,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bookDiv.setAttribute('data-id', book.id);
         let removeBtn = document.createElement('button');
       removeBtn.classList.add('remove-button');
-      removeBtn.textContent = 'Delete'
+      removeBtn.textContent = 'Delete';  
 
       bookDiv.innerHTML = `
         <p>"${book.title}"</p>
@@ -122,9 +135,23 @@ document.addEventListener('DOMContentLoaded', () => {
           location.reload(); // Force refresh after delete
         });
 
+        let readOrNot = document.createElement('button');
+      readOrNot.classList.add('remove-button');
+      readOrNot.textContent = 'Read';
+
+      readOrNot.addEventListener('click', ()=> {
+        if (readOrNot.textContent === 'Read') {
+          readOrNot.textContent = 'Not Read'
+        }
+        else if (readOrNot.textContent === 'Not Read') {
+          readOrNot.textContent = 'Read'
+        };
+      });
+
       Library.appendChild(bookDiv);
       bookDiv.appendChild(removeBtn);
-      console.log(bookDiv.dataset.id);
+      bookDiv.appendChild(readOrNot);
+      
     });
   }
 
