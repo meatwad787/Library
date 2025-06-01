@@ -67,6 +67,8 @@ SubmitBtn.addEventListener('click', (event)=> {
         <p>${book.pages} Pages</p>
       `;
 
+       // This is chatgpt. I'm still figuring out how it works
+      // Deletes books from the page and the local storage
       removeBtn.addEventListener('click', () => {
           let storedLibrary = JSON.parse(localStorage.getItem('MyBooks')) || [];
           storedLibrary = storedLibrary.filter(b => b.id !== book.id);
@@ -111,13 +113,15 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>${book.pages} Pages</p>
       `;
 
+      // This is chatgpt. I'm still figuring out how it works
+      // Deletes books from the page and the local storage
       removeBtn.addEventListener('click', () => {
           let storedLibrary = JSON.parse(localStorage.getItem('MyBooks')) || [];
           storedLibrary = storedLibrary.filter(b => b.id !== book.id);
           localStorage.setItem('MyBooks', JSON.stringify(storedLibrary));
           location.reload(); // Force refresh after delete
         });
-        
+
       Library.appendChild(bookDiv);
       bookDiv.appendChild(removeBtn);
       console.log(bookDiv.dataset.id);
