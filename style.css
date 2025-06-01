@@ -176,3 +176,14 @@ input:focus.form-input {
     height: 3.5rem;
     width: 6.5rem;
 }
+@media (min-width: 300px) {
+    .form {
+        width: 90%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .form {
+        width: 70%;
+    }
+}
