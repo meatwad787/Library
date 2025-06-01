@@ -45,7 +45,8 @@ SubmitBtn.addEventListener('click', (event)=> {
           id: UUID,
           title: document.querySelector('#title').value,
           author: document.querySelector('#author').value,
-          pages: document.querySelector('#page-number').value
+          pages: document.querySelector('#page-number').value,
+          read: true
       };
         myLibrary.push(Book);
 
@@ -79,13 +80,19 @@ SubmitBtn.addEventListener('click', (event)=> {
         let readOrNot = document.createElement('button');
       readOrNot.classList.add('remove-button');
       readOrNot.textContent = 'Read';
+      readOrNot.textContent = book.read ? 'Read' : 'Not Read';
+
 
       readOrNot.addEventListener('click', ()=> {
         if (readOrNot.textContent === 'Read') {
-          readOrNot.textContent = 'Not Read'
+          book.read = false;
+          readOrNot.textContent = 'Not Read';
+          localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
         }
         else if (readOrNot.textContent === 'Not Read') {
-          readOrNot.textContent = 'Read'
+          book.read = true;
+          readOrNot.textContent = 'Read';
+          localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
         };
       });
 
@@ -138,13 +145,19 @@ document.addEventListener('DOMContentLoaded', () => {
         let readOrNot = document.createElement('button');
       readOrNot.classList.add('remove-button');
       readOrNot.textContent = 'Read';
+      readOrNot.textContent = book.read ? 'Read' : 'Not Read';
+
 
       readOrNot.addEventListener('click', ()=> {
         if (readOrNot.textContent === 'Read') {
-          readOrNot.textContent = 'Not Read'
+          book.read = false;
+          readOrNot.textContent = 'Not Read';
+          localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
         }
         else if (readOrNot.textContent === 'Not Read') {
-          readOrNot.textContent = 'Read'
+          book.read = true;
+          readOrNot.textContent = 'Read';
+          localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
         };
       });
 
