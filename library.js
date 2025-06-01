@@ -40,8 +40,9 @@ SubmitBtn.addEventListener('click', (event)=> {
 
   // Creates the Book object 
   // Uses the form input values as key: values.
+  const UUID = crypto.randomUUID();
       let Book = {
-          id: crypto.randomUUID(),
+          id: UUID,
           title: document.querySelector('#title').value,
           author: document.querySelector('#author').value,
           pages: document.querySelector('#page-number').value
@@ -53,9 +54,11 @@ SubmitBtn.addEventListener('click', (event)=> {
       myLibrary.forEach(function(book) {
       let bookDiv = document.createElement('div');
       bookDiv.classList.add("book");
+      bookDiv.setAttribute('data-id', book.id);
       let removeBtn = document.createElement('button');
       removeBtn.classList.add('remove-button');
-      removeBtn.textContent = 'Delete'
+      removeBtn.textContent = 'Delete';
+      console.log(bookDiv.dataset.id);
       
 
       bookDiv.innerHTML = `
@@ -64,11 +67,19 @@ SubmitBtn.addEventListener('click', (event)=> {
         <p>${book.pages} Pages</p>
       `;
 
+      removeBtn.addEventListener('click', () => {
+          let storedLibrary = JSON.parse(localStorage.getItem('MyBooks')) || [];
+          storedLibrary = storedLibrary.filter(b => b.id !== book.id);
+          localStorage.setItem('MyBooks', JSON.stringify(storedLibrary));
+          location.reload(); // Force refresh after delete
+        });
+
+
       Library.appendChild(bookDiv);
       bookDiv.appendChild(removeBtn);
       })
       Form.reset(); // Reset the form
-      console.table(myLibrary);
+      // console.table(myLibrary);
 
       // Locally Stores the objects in myLibrary as JSON string 
       localStorage.setItem('MyBooks', JSON.stringify(myLibrary))
@@ -78,7 +89,7 @@ SubmitBtn.addEventListener('click', (event)=> {
 
 
 
-  // Lets the browser re-creates previous html and objects after refresh
+  // Lets the browser re-create previous html and objects after refresh
   // Basically save the page/ Library so you can keep adding to it
 document.addEventListener('DOMContentLoaded', () => {
   const storedLibrary = localStorage.getItem('MyBooks');
@@ -89,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadedBooks.forEach(function(book) {
       let bookDiv = document.createElement('div');
       bookDiv.classList.add("book");
+      bookDiv.setAttribute('data-id', book.id);
         let removeBtn = document.createElement('button');
       removeBtn.classList.add('remove-button');
       removeBtn.textContent = 'Delete'
@@ -99,8 +111,16 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>${book.pages} Pages</p>
       `;
 
+      removeBtn.addEventListener('click', () => {
+          let storedLibrary = JSON.parse(localStorage.getItem('MyBooks')) || [];
+          storedLibrary = storedLibrary.filter(b => b.id !== book.id);
+          localStorage.setItem('MyBooks', JSON.stringify(storedLibrary));
+          location.reload(); // Force refresh after delete
+        });
+        
       Library.appendChild(bookDiv);
       bookDiv.appendChild(removeBtn);
+      console.log(bookDiv.dataset.id);
     });
   }
 
