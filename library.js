@@ -64,7 +64,7 @@ SubmitBtn.addEventListener('click', (event)=> {
       bookDiv.innerHTML = `
         <p>"${book.title}"</p>
         <p> by ${book.author}</p>
-        <p>${book.pages} Pages</p>
+        <p>${book.pages} Page(s)</p>
       `;
 
        // This is chatgpt. I'm still figuring out how it works
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bookDiv.innerHTML = `
         <p>"${book.title}"</p>
         <p> by ${book.author}</p>
-        <p>${book.pages} Pages</p>
+        <p>${book.pages} Page(s)</p>
       `;
 
       // This is chatgpt. I'm still figuring out how it works
