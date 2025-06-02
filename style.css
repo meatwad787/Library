@@ -45,13 +45,32 @@ body {
     border: none;
     border-radius: .2rem;
     background-color: #8c0202;
-   box-shadow: 5px 5px 4px 0px rgb(9, 171, 212)
+   box-shadow: 5px 5px 4px 0px rgb(9, 171, 212);
+
+    animation-name: reset, bounce;
+    animation-duration: 1900ms;
+    animation-iteration-count: infinite;
 } button:hover {
     background-color: rgb(9, 171, 212);
 } button.no-hover {
     background-color: initial;
     color: #8c0202;
 }
+
+@keyframes reset {
+    0% {color:red }
+    14% { color: orange; }
+    28% {color: yellow;}
+    42% { color: green; }
+    56% {color: blue;}
+    70% { color: indigo;}
+    84% {color: violet;}
+} 
+
+@keyframes bounce {
+    from {scale: 0.7}
+}
+
 
 .library {
     display: flex;
@@ -178,8 +197,14 @@ input:focus.form-input {
 
 
 .submit {
+    color: rgb(255 210 0);
     height: 3.5rem;
     width: 6.5rem;
+    font-size: larger;
+    border: none;
+    border-radius: .2rem;
+    background-color: #8c0202;
+   box-shadow: 5px 5px 4px 0px rgb(9, 171, 212);
 }
 @media (min-width: 300px) {
     .form {
