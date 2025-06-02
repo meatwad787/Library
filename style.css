@@ -39,9 +39,9 @@ body {
 }
 .button {
     color: rgb(255 210 0);
-        height: 4rem;
-    width: 5rem;
-    font-size: larger;
+    height: 5rem;
+    width: 6rem;
+    font-size: x-large;
     border: none;
     border-radius: .2rem;
     background-color: #8c0202;
