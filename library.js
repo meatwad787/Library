@@ -19,6 +19,11 @@ NewBookBtn.addEventListener('click', ()=> {
   ClearAllBtn.classList.add('no-hover');
   NewBookBtn.disabled = true;
   NewBookBtn.classList.add('no-hover');
+  // Targets class selectors since these buttons were dynamically created here 
+  document.querySelectorAll('.remove-button').forEach(btn => {
+  btn.disabled = true;
+  btn.classList.add('no-hover');
+});
 
 })
 
@@ -36,7 +41,12 @@ SubmitBtn.addEventListener('click', (event)=> {
   ClearAllBtn.disabled = false;
   ClearAllBtn.classList.remove('no-hover');
   NewBookBtn.disabled = false;
-  NewBookBtn.classList.remove('no-hover')
+  NewBookBtn.classList.remove('no-hover');
+  // Targets class selectors since these buttons were dynamically created here 
+  document.querySelectorAll('.remove-button').forEach(btn => {
+  btn.disabled = false;
+  btn.classList.remove('no-hover');
+});
 
   // Creates the Book object 
   // Uses the form input values as key: values.
