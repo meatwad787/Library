@@ -69,7 +69,7 @@ SubmitBtn.addEventListener('click', (event)=> {
       let removeBtn = document.createElement('button');
       removeBtn.classList.add('remove-button');
       removeBtn.textContent = 'Delete';
-      console.log(bookDiv.dataset.id);
+      
       
       bookDiv.innerHTML = `
         <p>"${book.title}"</p>
@@ -105,7 +105,7 @@ SubmitBtn.addEventListener('click', (event)=> {
           localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
         };
       });
-
+      
       Library.appendChild(bookDiv);
       bookDiv.appendChild(removeBtn);
       bookDiv.appendChild(readOrNot);
@@ -115,6 +115,7 @@ SubmitBtn.addEventListener('click', (event)=> {
 
       // Locally Stores the objects in myLibrary as JSON string 
       localStorage.setItem('MyBooks', JSON.stringify(myLibrary))
+      
 })
 
 }
@@ -170,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
         };
       });
-
+       console.log(bookDiv.dataset.id);
       Library.appendChild(bookDiv);
       bookDiv.appendChild(removeBtn);
       bookDiv.appendChild(readOrNot);
