@@ -27,6 +27,7 @@ body {
     top: 10px;
     left: 0px;
     right: 10px;
+    pointer-events: none;
 }
 
 .new-book-button {
@@ -46,6 +47,7 @@ body {
     border-radius: .2rem;
     background-color: #8c0202;
    box-shadow: 5px 5px 4px 0px rgb(9, 171, 212);
+   pointer-events: auto;
 
     animation-name: reset, bounce;
     animation-duration: 1900ms;
