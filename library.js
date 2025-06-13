@@ -19,7 +19,8 @@ NewBookBtn.addEventListener('click', ()=> {
   ClearAllBtn.classList.add('no-hover');
   NewBookBtn.disabled = true;
   NewBookBtn.classList.add('no-hover');
-  // Targets class selectors since these buttons were dynamically created here 
+  // Targets class selectors since these buttons were dynamically created inside a loop 
+  // instead of defining them in the global(?) scope
   document.querySelectorAll('.remove-button').forEach(btn => {
   btn.disabled = true;
   btn.classList.add('no-hover');
