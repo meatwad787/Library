@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(104 0 0);
+    background-color: #000000;
 }
 .blur {
      filter: blur(2px);
@@ -14,7 +14,7 @@ body {
      height: auto; /* allow it to grow */
     /* overflow-y: auto; */
     /* width: 100vw; */
-    background-color: rgb(104 0 0);
+    background-color: rgb(0 0 0);
 }
 
 .button-div {
@@ -45,7 +45,7 @@ body {
     font-size: x-large;
     border: none;
     border-radius: .2rem;
-    background-color: #8c0202;
+    background-color: #ffffff;
    box-shadow: 5px 5px 4px 0px rgb(9, 171, 212);
    pointer-events: auto;
 
@@ -81,8 +81,8 @@ body {
 }
 
 .book {
-       color: rgb(255 210 0);
-    background-color: rgb(184 5 5 / 89%);
+     color: rgb(73 164 255);
+    background-color: rgb(255 255 255 / 89%);
     font-size: large;
     /* border: 1px solid black; */
     border-radius: .3rem;
@@ -96,13 +96,14 @@ body {
     /* word-wrap: break-word; */
     /* white-space: pre-line; */
     overflow: auto;
+    -webkit-hyphens: auto;
     hyphens: auto;
 } .book>p:first-child {
     font-style: italic;
 }
 .remove-button {
-       color: rgb(255 210 0);
-    background-color: #8c0202;
+    color: rgb(57 226 255);
+    background-color: #000000;
     font-size: large;
     /* border: 1px solid black; */
     border: transparent;
@@ -133,12 +134,12 @@ body {
 }
 
 form {
-       color: rgb(255, 208, 0);
+    color: rgb(73 164 255);
     font-size: larger;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(172 0 0 / 52%);
+     background-color: rgb(255 255 255 / 89%);
     padding-top: 3rem;
     height: 30.5rem;
     width: 60%;
@@ -184,6 +185,7 @@ input {
     margin: 0.3rem 0rem 1.8rem;
     border: none;
     border-radius: 8px;
+    background-color: rgba(161, 194, 255, 0.847);
 } input:user-invalid {
     box-shadow:  1px 4px 12px 0px rgb(255, 0, 0);
  } /*input:user-valid {
