@@ -8,7 +8,8 @@ const SubmitBtn = document.querySelector('#submit');
 
 
 const myLibrary = [];
-     class Book { constructor (id, title, author, pages, read) { 
+     class Book { 
+      constructor (id, title, author, pages, read) { 
       this.id = id; 
       this.title = title;
       this.author = author;
