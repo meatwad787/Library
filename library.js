@@ -8,6 +8,58 @@ const SubmitBtn = document.querySelector('#submit');
 
 
 const myLibrary = [];
+     class Book { constructor (id, title, author, pages, read) { 
+      this.id = id; 
+      this.title = title;
+      this.author = author;
+      this.pages = pages;
+      this.read = read; } 
+    }
+
+  function renderBooks() {
+    Library.innerHTML = ''; // clear everything first
+
+    myLibrary.forEach(function(book) {
+      let bookDiv = document.createElement('div');
+      bookDiv.classList.add("book");
+      bookDiv.setAttribute('data-id', book.id);
+
+    bookDiv.innerHTML = `
+      <p>"${book.title}"</p>
+      <p> by ${book.author}</p>
+      <p>${book.pages} Page(s)</p>
+    `;
+
+    // Delete button
+    let removeBtn = document.createElement('button');
+    removeBtn.classList.add('remove-button');
+    removeBtn.textContent = 'Delete';
+    removeBtn.addEventListener('click', () => {
+      let storedLibrary = JSON.parse(localStorage.getItem('MyBooks')) || [];
+      storedLibrary = storedLibrary.filter(b => b.id !== book.id);
+      localStorage.setItem('MyBooks', JSON.stringify(storedLibrary));
+      myLibrary.splice(myLibrary.findIndex(b => b.id === book.id), 1);
+      renderBooks();
+    });
+
+    // Read/Not Read toggle
+    let readOrNot = document.createElement('button');
+    readOrNot.classList.add('remove-button');
+    readOrNot.textContent = book.read ? 'Read' : 'Not Read';
+    readOrNot.addEventListener('click', ()=> {
+      book.read = !book.read;
+      readOrNot.textContent = book.read ? 'Read' : 'Not Read';
+      localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
+    });
+
+    // Append children
+    bookDiv.appendChild(removeBtn);
+    bookDiv.appendChild(readOrNot);
+    Library.appendChild(bookDiv);
+  });
+  console.log(myLibrary)
+}
+
 
 function addBook () {
 // This makes the form "appear" as a popup 
@@ -39,6 +91,13 @@ SubmitBtn.addEventListener('click', (event)=> {
   Form.style.display = 'none';
   FormConainer.classList.remove('z-index'); // resets the form-container's z-index to -1  
 
+  const newBook = new Book(
+    crypto.randomUUID(),
+     document.querySelector('#title').value,
+    document.querySelector('#author').value, 
+    document.querySelector('#page-number').value,
+    true);
+
   ClearAllBtn.disabled = false;
   ClearAllBtn.classList.remove('no-hover');
   NewBookBtn.disabled = false;
@@ -47,81 +106,21 @@ SubmitBtn.addEventListener('click', (event)=> {
   document.querySelectorAll('.remove-button').forEach(btn => {
   btn.disabled = false;
   btn.classList.remove('no-hover');
+
+  
 });
 
-  // Creates the Book object 
-  // Uses the form input values as key: values.
-  const UUID = crypto.randomUUID();
-      let Book = {
-          id: UUID,
-          title: document.querySelector('#title').value,
-          author: document.querySelector('#author').value,
-          pages: document.querySelector('#page-number').value,
-          read: true
-      };
-        myLibrary.push(Book);
-
-        Library.innerHTML = '';
-
-      myLibrary.forEach(function(book) {
-      let bookDiv = document.createElement('div');
-      bookDiv.classList.add("book");
-      bookDiv.setAttribute('data-id', book.id);
-      let removeBtn = document.createElement('button');
-      removeBtn.classList.add('remove-button');
-      removeBtn.textContent = 'Delete';
-      
-      
-      bookDiv.innerHTML = `
-        <p>"${book.title}"</p>
-        <p> by ${book.author}</p>
-        <p>${book.pages} Page(s)</p>
-      `;
-
-       // This is chatgpt. I'm still figuring out how it works
-      // Deletes books from the page and the local storage
-      removeBtn.addEventListener('click', () => {
-          let storedLibrary = JSON.parse(localStorage.getItem('MyBooks')) || [];
-          storedLibrary = storedLibrary.filter(b => b.id !== book.id);
-          localStorage.setItem('MyBooks', JSON.stringify(storedLibrary));
-          location.reload(); // Force refresh after delete
-        });
-
-
-        let readOrNot = document.createElement('button');
-      readOrNot.classList.add('remove-button');
-      readOrNot.textContent = 'Read';
-      readOrNot.textContent = book.read ? 'Read' : 'Not Read';
-
-
-      readOrNot.addEventListener('click', ()=> {
-        if (readOrNot.textContent === 'Read') {
-          book.read = false;
-          readOrNot.textContent = 'Not Read';
-          localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
-        }
-        else if (readOrNot.textContent === 'Not Read') {
-          book.read = true;
-          readOrNot.textContent = 'Read';
-          localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
-        };
-      });
-      
-      Library.appendChild(bookDiv);
-      bookDiv.appendChild(removeBtn);
-      bookDiv.appendChild(readOrNot);
-      })
-      Form.reset(); // Reset the form
-      // console.table(myLibrary);
+  
+        myLibrary.push(newBook);
+     
 
       // Locally Stores the objects in myLibrary as JSON string 
-      localStorage.setItem('MyBooks', JSON.stringify(myLibrary))
-      
-})
-
+      localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
+       Form.reset(); // Reset the form
+      // console.table(myLibrary);
+      renderBooks();
+});
 }
-
-
 
   // Lets the browser re-create previous html and objects after refresh
   // Basically save the page/ Library so you can keep adding to it
@@ -130,56 +129,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (storedLibrary) {
     const loadedBooks = JSON.parse(storedLibrary);
     myLibrary.push(...loadedBooks); // populate the main array
-
-    loadedBooks.forEach(function(book) {
-      let bookDiv = document.createElement('div');
-      bookDiv.classList.add("book");
-      bookDiv.setAttribute('data-id', book.id);
-        let removeBtn = document.createElement('button');
-      removeBtn.classList.add('remove-button');
-      removeBtn.textContent = 'Delete';  
-
-      bookDiv.innerHTML = `
-        <p>"${book.title}"</p>
-        <p> by ${book.author}</p>
-        <p>${book.pages} Page(s)</p>
-      `;
-
-      // This is chatgpt. I'm still figuring out how it works
-      // Deletes books from the page and the local storage
-      removeBtn.addEventListener('click', () => {
-          let storedLibrary = JSON.parse(localStorage.getItem('MyBooks')) || [];
-          storedLibrary = storedLibrary.filter(b => b.id !== book.id);
-          localStorage.setItem('MyBooks', JSON.stringify(storedLibrary));
-          location.reload(); // Force refresh after delete
-        });
-
-        let readOrNot = document.createElement('button');
-      readOrNot.classList.add('remove-button');
-      readOrNot.textContent = 'Read';
-      readOrNot.textContent = book.read ? 'Read' : 'Not Read';
-
-
-      readOrNot.addEventListener('click', ()=> {
-        if (readOrNot.textContent === 'Read') {
-          book.read = false;
-          readOrNot.textContent = 'Not Read';
-          localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
-        }
-        else if (readOrNot.textContent === 'Not Read') {
-          book.read = true;
-          readOrNot.textContent = 'Read';
-          localStorage.setItem('MyBooks', JSON.stringify(myLibrary));
-        };
-      });
-       console.log(bookDiv.dataset.id);
-      Library.appendChild(bookDiv);
-      bookDiv.appendChild(removeBtn);
-      bookDiv.appendChild(readOrNot);
+    renderBooks();
       
-    });
   }
-
   addBook()
 })
+
 
